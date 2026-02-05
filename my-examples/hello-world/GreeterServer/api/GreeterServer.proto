@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api;
+
+// option go_package = "导入路径;包名";
+// 如果只有导入路径，包名默认使用路径最后一部分
+option go_package = "github.com/robert-pkg/go-micro/my-examples/hello-world/GreeterServer/api;api";
+
+message SayHelloRequest {
+	string name = 1;
+}
+
+message SayHelloResponse {
+	string greeting = 1;
+}
+
+service GreeterServer {
+	rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
+}
